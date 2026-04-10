@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QA Dashboard</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #eef2f7;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 12px;
+}
+
+.box {
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  min-height: 420px;
+}
+
+.pqc { background: #2c3e50; }
+.cal { background: #8e44ad; }
+.collect { background: #16a085; }
+.dheena { background: #e67e22; }
+.five { background: #2980b9; }
+.drive { background: #c0392b; }
+
+.item {
+  background: rgba(255,255,255,0.2);
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* VIEWER */
+#viewerPage {
+  display: none;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#topBar {
+  background: #111;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  flex: 1;
+  border: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- DASHBOARD -->
+<div id="homePage">
+
+<h1>📊 QA DASHBOARD</h1>
+
+<div class="grid">
+
+<!-- PQC -->
+<div class="box pqc">
+<h3>PQC</h3>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1ijRzl7XrcL6jpz87sQMetgdoJxB-fzhQRJIfSappqb0/edit')">Scanner power cable continuity check</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1R8UK2D9INf1FRkuEPmz0bP1tqT8jcCGwJ5WRdM5ngBA/edit')">Dispatch Details</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1jgPyUfUuHUhoD2PGbKXZOp20GQkfKr46chOz88JayN8/edit')">Monthly report - 2024</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1i_px0AqgK4R6JIQuwPpNbGqxHG31pYNZobIWfB_VNrI/edit')">Material rejection note</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1XUDCt1Y8iCpBMWGDtvt0hMxJcDo1tWVkgDjifOF2vA4/edit')">Pre packing traceability</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1pE9APt5pHUA-Ez57gyb7170QVjTT5RolNMF_8_ekuLA/edit')">Final packing</div>
+</div>
+
+<!-- CALIBRATION -->
+<div class="box cal">
+<h3>CALIBRATION</h3>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1OYYMl-q8GbPc9fL-3O8EiM9gnIu2F88UEUQCtWtTnNs/edit')">Device Calibration Tracking</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1VW65xEZxTqyzoIKoLVhfpa_1UqhOPxb1x5meRvPBBNA/edit')">Scanner Calibration Observations</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1ozVH7tNNsNOs4JBj1csMMHIjKVdKKGVUNBsjwe3z54M/edit')">Scanner Backup Data</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1kNAO9Hv0PdxdRpYNBLlCOqE3ElU46N44ohxclzjVzqY/edit')">Scanner Software Issues</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1YQE0QqeXFznTQ6BxHlNpP04rhJ0_Bn8Y8SUlRpgsP6A/edit')">Software Updation Tracking</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1JCNvXOYksFIPaD28vT7kUA0gRTn5pMnHOkAf9IPw2-M/edit')">Observation Points</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1NVRyoHwojzt6dUzqj9LCA0Mba17kSK__sW2nq8zfYT8/edit')">Calibration Issues List</div>
+</div>
+
+<!-- CALIBRATION DATA COLLECTION -->
+<div class="box collect">
+<h3>CALIBRATION DATA COLLECTION</h3>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1rXhUA15-f26tEdGhFF_XgsiT-vEil622JeP4LG87dTI/edit')">Illumination Data Capture</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1bQxY7erQ9FkNXshCcKxiuVEWJsrvFaA1ecDndprDOHw/edit')">Scanner Data Points</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1YKp5GE72_ckVfUXf6kgsdWlQVCDjzR7rzez33Dq3-EU/edit')">Scanner Data Analysis</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1PC1HCr1X1mXGqU70YO_UKsuN-90d_LuE8eKO7DFE8Jc/edit')">40X Focus Variations</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1hwdFzY1f8S8hxcap1ZPty0RD_5JhOSrmVkPofBq8onI/edit')">Stack & Displacement</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1I0f8MxmOV6oN1gC3BJZMQ1xzVvebrU_1t4vo_U7C2pc/edit')">Aberration & MPP</div>
+</div>
+
+<!-- DHEENA -->
+<div class="box dheena">
+<h3>DHEENA</h3>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1z8dzlp4vCYMk-mXWGdZ1K4pQ6Spu5F3kttxphuKfhm0/edit')">Manual Scanner Validation</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1kHaZztvllGqKsrR3ea2Uh1pEiNldpfXh/edit')">ISO Documents</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1NxX8bkXDyEImznY8USDuPgCakc_-_8udVJE40dFOE1c/edit')">HT Validation Summary</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1rySLiCqZ6z8NjuX4PC2JurIU8LkkGQvR/edit')">Vulcal Pilot</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1NYKbUhFHtxhKRaARifZQYpBN1_OPbuoPDriGIqtxKa8/edit')">Calibration Reminder</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1wIE1QV3vDNAycYgeaVbBHZZro5D69XuD/edit')">Software Usage</div>
+</div>
+
+<!-- 5S & ROBO -->
+<div class="box five">
+<h3>5S & ROBO</h3>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/15ZYPbr00sVYAn4Qy0m9XygVm6-vCaRF78KeJvGuMMh8/edit')">5S Cleaning</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1zT0UrZRUSbfJ32zFFvMW2BlOC4aNlJ36GNzR_0tsLK0/edit')">Cluster Table</div>
+<div class="item" onclick="openSheet('https://docs.google.com/spreadsheets/d/1FAVg9DF8boKKcjX0FQnaJ84e3zdSKCQLhmyccaPBFhE/edit')">Robo QC Traceability</div>
+</div>
+
+<!-- ONE DRIVE -->
+<div class="box drive">
+<h3>ONE DRIVE</h3>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/folders/1ZALYlWgOf7Z2h4HkRQlE7f13DExhg9me')">Work Instruction</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/folders/1Mi14MlQUjT_P8TSXEZ60HNv3jmtdlb-A')">Network Config</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/folders/1batrNnDrwP7l1Rjs7AjektJeo5MBXAAk')">Patents</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/folders/1DlPIXPrnP-HglLJBItmJdMSIy4XwsHkT')">ROBO DHR</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/folders/0AB1AdvTPf_klUk9PVA')">Cluster Table DHR</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/u/0/folders/0ACcLoMXlG6iOUk9PVA')">Active DMR</div>
+<div class="item" onclick="openNewTab('https://drive.google.com/drive/u/0/folders/0AADV-t0-JVlkUk9PVA')">EVIG DHR</div>
+</div>
+
+</div>
+</div>
+
+<!-- VIEWER PAGE -->
+<div id="viewerPage">
+<div id="topBar">
+<button onclick="goBack()">⬅ Back to Dashboard</button>
+</div>
+<iframe id="sheetFrame"></iframe>
+</div>
+
+<script>
+function openSheet(url){
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("viewerPage").style.display = "flex";
+
+  if(!url.includes("/edit")){
+    url = url.replace("/preview","/edit");
+  }
+
+  document.getElementById("sheetFrame").src = url;
+}
+
+function goBack(){
+  document.getElementById("viewerPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
+  document.getElementById("sheetFrame").src = "";
+}
+
+function openNewTab(url){
+  window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>
